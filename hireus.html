@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hire Us | UNI Freelancers</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    .fade-in { animation: fadeIn 1.2s ease-in-out; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .count-up { font-weight: bold; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navbar -->
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+      <a href="index.html" class="flex items-center space-x-3">
+        <img src="original logo.png" alt="UNI Freelancers Logo" class="w-12 h-12 rounded-full border border-yellow-600">
+        <span class="text-2xl font-bold text-yellow-700">UNI Freelancers</span>
+      </a>
+      <nav class="space-x-6 hidden md:flex">
+        <a href="index.html" class="hover:text-yellow-600">Home</a>
+        <a href="aboutus.html" class="hover:text-yellow-600">About</a>
+        <a href="hireus.html" class="text-yellow-700 font-semibold">Hire Us</a>
+        <a href="donateus.html" class="hover:text-yellow-600">Donate</a>
+        <a href="contactus.html" class="hover:text-yellow-600">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section (Transparent for clear image) -->
+  <section class="relative text-white py-24 text-center fade-in overflow-hidden">
+    <img src="w1.jpeg" alt="Team working" class="absolute inset-0 w-full h-full object-cover">
+    
+    <!-- Soft gradient overlay for text visibility -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/10"></div>
+    
+    <div class="relative z-10 max-w-3xl mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Hire Passion. Hire Purpose. Hire UNI Freelancers.</h1>
+      <p class="text-lg md:text-xl text-gray-100 leading-relaxed">
+        Partner with skilled youth from Kibera and marginalized communities for digital work — 
+        empowering lives while achieving your goals.
+      </p>
+    </div>
+  </section>
+
+  <!-- What We Offer -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-6 text-center fade-in">
+      <h2 class="text-3xl font-bold text-yellow-800 mb-8">What We Can Do For You</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <div class="bg-yellow-50 rounded-2xl p-8 border border-yellow-200 shadow hover:shadow-xl transition transform hover:-translate-y-1">
+          <i class="fas fa-laptop-code text-yellow-600 text-4xl mb-4"></i>
+          <h3 class="text-2xl font-semibold text-yellow-700 mb-3">Web Design</h3>
+          <p>Creative, responsive websites designed by passionate youth trained in digital skills.</p>
+        </div>
+
+        <div class="bg-yellow-50 rounded-2xl p-8 border border-yellow-200 shadow hover:shadow-xl transition transform hover:-translate-y-1">
+          <i class="fas fa-pen-nib text-yellow-600 text-4xl mb-4"></i>
+          <h3 class="text-2xl font-semibold text-yellow-700 mb-3">Graphic Design</h3>
+          <p>Logos, posters, and branding that bring your ideas to life with youthful creativity.</p>
+        </div>
+
+        <div class="bg-yellow-50 rounded-2xl p-8 border border-yellow-200 shadow hover:shadow-xl transition transform hover:-translate-y-1">
+          <i class="fas fa-camera text-yellow-600 text-4xl mb-4"></i>
+          <h3 class="text-2xl font-semibold text-yellow-700 mb-3">🧭 Data Entry, Measuring & Evaluation:</h3>
+          <p>We track, analyze, and showcase real community impact — turning data into stories of change and progress.</p>
+        </div>
+        <div class="bg-yellow-50 rounded-2xl p-8 border border-yellow-200 shadow hover:shadow-xl transition transform hover:-translate-y-1">
+          <i class="fas fa-camera text-yellow-600 text-4xl mb-4"></i>
+          <h3 class="text-2xl font-semibold text-yellow-700 mb-3">💻 Digital Literacy Training:</h3>
+          <p>Empowering youth with essential digital skills to thrive, connect, and create opportunities in the modern world.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Numbers -->
+  <section class="bg-yellow-100 py-16 fade-in">
+    <div class="max-w-6xl mx-auto text-center px-6">
+      <h2 class="text-3xl font-bold text-yellow-800 mb-8">Our Impact in Numbers</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-5xl text-yellow-700 count-up" data-target="15">0</h3>
+          <p class="text-gray-700 mt-2">Youth Empowered</p>
+        </div>
+        <div>
+          <h3 class="text-5xl text-yellow-700 count-up" data-target="50">0</h3>
+          <p class="text-gray-700 mt-2">Projects Completed</p>
+        </div>
+        <div>
+          <h3 class="text-5xl text-yellow-700 count-up" data-target="5">0</h3>
+          <p class="text-gray-700 mt-2">Communities Reached</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hire Us Contact Section -->
+  <section class="bg-yellow-50 py-16 fade-in" id="hire-contact">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold text-yellow-800 mb-6">Let's Work Together</h2>
+      <p class="text-gray-700 mb-10">By hiring us, you’re not just getting skilled freelancers — you’re transforming lives and building the future of digital Africa.</p>
+      
+      <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+        <a href="tel:+254746917160" class="bg-yellow-600 text-white px-8 py-3 rounded-xl font-semibold shadow hover:bg-yellow-700 transition flex items-center space-x-2">
+          <i class="fas fa-phone"></i> <span>Call Us</span>
+        </a>
+        <a href="https://wa.me/254746917160" class="bg-green-600 text-white px-8 py-3 rounded-xl font-semibold shadow hover:bg-green-700 transition flex items-center space-x-2">
+          <i class="fab fa-whatsapp"></i> <span>WhatsApp</span>
+        </a>
+        <a href="sms:+254746917160" class="bg-yellow-500 text-white px-8 py-3 rounded-xl font-semibold shadow hover:bg-yellow-600 transition flex items-center space-x-2">
+          <i class="fas fa-sms"></i> <span>Send SMS</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-yellow-800 text-white py-8">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+      <p>© 2025 UNI Freelancers. Empowering Youth. Creating Impact.</p>
+      <div class="space-x-4 mt-4 md:mt-0">
+        <a href="https://www.instagram.com/unifreelancers.company" class="hover:text-yellow-300">Instagram</a>
+        <a href="#" class="hover:text-yellow-300">TikTok</a>
+        <a href="#" class="hover:text-yellow-300">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Counter Animation -->
+  <script>
+    const counters = document.querySelectorAll('.count-up');
+    const speed = 100;
+
+    const animateCounters = () => {
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const updateCount = () => {
+          const count = +counter.innerText;
+          const increment = target / speed;
+          if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCount, 30);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCount();
+      });
+    };
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) animateCounters();
+      });
+    });
+    observer.observe(document.querySelector('.count-up').parentNode.parentNode);
+  </script>
+
+</body>
+</html>

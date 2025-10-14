@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UNI Freelancer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* ======= GLOBAL STYLES ======= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #f4f4f4;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 25px;
+      color: #fff;
+      text-decoration: none;
+      background: #cc5500;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      opacity: 0.85;
+    }
+
+    /* ======= NAVIGATION BAR ======= */
+    nav {
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em 2em;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    nav .logo {
+      height: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #cc5500;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      color: #ffd700;
+    }
+
+    /* ======= HERO SECTION ======= */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      background-size: cover;
+      background-position: center;
+      animation: bgChange 20s infinite alternate;
+    }
+
+    @keyframes bgChange {
+      0% { background-image: url("pic1.jpg"); }
+      33% { background-image: url("pic2.jpg"); }
+      66% { background-image: url("pic3.jpg"); }
+      88% { background-image: url("y3.jpg"); }
+      100% { background-image: url("y1.webp"); }
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      padding: 0 10px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+    }
+
+    /* ======= SERVICES SECTION ======= */
+    .services h2 {
+      color: #cc5500;
+    }
+
+    .service-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .service-box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      width: 280px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .service-box:hover {
+      transform: scale(1.05);
+    }
+
+    .service-box a {
+      margin-top: 10px;
+      display: inline-block;
+      background: #cc5500;
+      color: #fff;
+      padding: 8px 15px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    /* ======= REWARDS SECTION ======= */
+    .rewards {
+      background: #fff3e0;
+      color: #333;
+    }
+
+    .reward-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .reward-item {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      width: 250px;
+    }
+
+    .reward-item img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    /* ======= REVIEWS SECTION ======= */
+    .reviews {
+      background: #f9f9f9;
+    }
+
+    .review-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .review-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 280px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .review-card img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    /* ======= VIDEOS SECTION ======= */
+    .videos {
+      background: #fff;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .video-grid video {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    /* ======= QUICK LINKS ======= */
+    .quick-links {
+      background: #fff3e0;
+      padding: 40px 20px;
+    }
+
+    .quick-links h3 {
+      color: #cc5500;
+      margin-bottom: 20px;
+    }
+
+    .quick-links a {
+      color: #333;
+      display: block;
+      margin: 5px 0;
+      text-decoration: none;
+    }
+
+    .quick-links a:hover {
+      color: #cc5500;
+    }
+
+    /* ======= FOOTER ======= */
+    footer {
+      background: #cc5500;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 0.9rem;
+    }
+
+    /* ======= RESPONSIVE ======= */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero p { font-size: 1rem; }
+      nav ul { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ======= NAVIGATION ======= -->
+  <nav>
+    <img src="original logo.png" alt="UNI Freelancer Logo" class="logo" />
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutus.html">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="hireus.html">Hire Us</a></li>
+      <li><a href="donateus.html">Donate/Support</a></li>
+    </ul>
+  </nav>
+
+  <!-- ======= HERO SECTION ======= -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Empowering Youths, Transforming Communities</h1>
+      <p>From the heart of Kibera, we empower young people with digital skills and meaningful work — restoring dignity, unlocking potential, and transforming entire communities.</p>
+      <a href="aboutus.html" class="btn">Learn More about us</a>
+      <a href="joinus.html" class="btn">Join Us Today</a>
+      <a href="hireus.html" class="btn">Hire us (Employ a youth)</a>
+    </div>
+  </header>
+
+  <!-- ======= SERVICES SECTION ======= -->
+  <section id="services" class="services">
+    <h2>What We Do</h2>
+    <div class="service-container">
+      <div class="service-box">
+        <h3>💻 Data Entry Jobs</h3>
+        <p>Providing reliable data entry and processing services while employing local youth.</p>
+        <a href="gallery.html">See Our Work</a>
+      </div>
+      <div class="service-box">
+        <h3>📚 Digital Skills Training</h3>
+        <p>Equipping young people with modern digital skills for freelancing and remote jobs.</p>
+        <a href="training.html">See Our Work</a>
+      </div>
+      <div class="service-box">
+        <h3>🌍 Community Empowerment</h3>
+        <p>Transforming communities by creating sustainable youth employment opportunities.</p>
+        <a href="impact.html">See Our Work</a>
+      </div>
+      <div class="service-box">
+        <h3>🎨 Web Design</h3>
+        <p>We design bold, beautiful websites that tell your story and connect you to the world.</p>
+        <a href="portfolio.html">See Our Work</a>
+      </div>
+    </div>
+  </section>
+
+
+     <!-- ======= REWARDS SECTION ======= -->
+  <section class="rewards">
+    <h2>Rewards & Recognition</h2>
+    <div class="reward-list">
+      <div class="reward-item">
+        <i class="fa fa-trophy"></i>
+        <h4>Best Youth Empowerment Initiative 2025</h4>
+        <!-- Embedded PDF Certificate -->
+        <iframe src="CEC - Certificate of participation-21.pdf" width="100%" height="300px" style="border:none; border-radius:10px;"></iframe>
+      </div>
+
+      <div class="reward-item">
+        <i class="fa fa-star"></i>
+        <h4>Top Community Innovation proposed by ChezaCheza</h4>
+        <iframe src="Kelvin's Recomendation .pdf" width="100%" height="300px" style="border:none; border-radius:10px;"></iframe>
+      </div>
+
+      <div class="reward-item">
+        <i class="fa fa-heart"></i>
+        <h4>Partner Appreciation Award</h4>
+        <iframe src="award3.pdf" width="100%" height="300px" style="border:none; border-radius:10px;"></iframe>
+    </div>
+  </section>
+
+  </section>
+
+  <!-- ======= VIDEOS SECTION ======= -->
+  <section class="videos">
+    <h2>Our Work in Action</h2>
+    <div class="video-grid">
+      <video controls poster="thumbnail1.jpg">
+        <source src="work1.mp4" type="video/mp4">
+      </video>
+      <video controls poster="thumbnail2.jpg">
+        <source src="work2.mp4" type="video/mp4">
+      </video>
+      <video controls poster="thumbnail3.jpg">
+        <source src="work3.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <!-- ======= REVIEWS SECTION ======= -->
+  <section class="reviews">
+    <h2>What People Say</h2>
+    <div class="review-container">
+      <div class="review-card">
+        <img src="ceo.JPG" alt="Kevin">
+        <p>“UNI Freelancers helped me get my first online job — I now earn and support my family!”</p>
+        <h4>— Kevin, Youth Trainee</h4>
+      </div>
+      <div class="review-card">
+        <img src="beb.jpg" alt="Chuka University">
+        <p>“Professional and reliable — their data entry team exceeded our expectations.”</p>
+        <h4>— Chuka University</h4>
+      </div>
+      <div class="review-card">
+        <img src="pic1.jpg" alt="Local Partner">
+        <p>“Through UNI Freelancers, we’ve seen real change in young people’s confidence and skills.”</p>
+        <h4>— Local Partner Organization</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= QUICK LINKS ======= -->
+  <section class="quick-links">
+    <h3>Quick Links</h3>
+    <a href="index.html">🏠 Home</a>
+    <a href="aboutus.html">ℹ️ About Us</a>
+    <a href="hireus.html">💼 Hire Us</a>
+    <a href="donateus.html">❤️ Donate / Support</a>
+    <a href="#services">📋 Our Services</a>
+    <a href="contactus.html">📞 Contact Us</a>
+  </section>
+
+  <!-- ======= FOOTER ======= -->
+  <footer>
+    <p>© 2025 UNI freelancers. All rights reserved.</p>
+  </footer>
+</body>
+</html>

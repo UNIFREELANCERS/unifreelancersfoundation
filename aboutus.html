@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Us • UNI Freelancer</title>
+    <meta name="description" content="UNI Freelancer is a youth-led initiative in Kibera training and engaging marginalized youth in digital work like data entry and M&E, restoring dignity and driving impact." />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#CC5500',
+              dark: '#2b1d0e',
+            },
+            fontFamily: {
+              sans: ['Poppins', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #fffaf5;
+      }
+
+      /* Subtle noise overlay for depth */
+      .noise::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
+        background-size: 3px 3px;
+        opacity: 0.12;
+        pointer-events: none;
+      }
+
+      /* Smooth transitions */
+      * {
+        transition: all 0.25s ease-in-out;
+      }
+
+      /* Navbar hover and scroll shadow */
+      header.sticky-nav {
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      header.sticky-nav.scrolled {
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Gallery hover */
+      .gallery-img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(204, 85, 0, 0.2);
+      }
+
+      /* Testimonial cards */
+      .testimonial {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .testimonial:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 6px 18px rgba(204, 85, 0, 0.2);
+      }
+    </style>
+  </head>
+
+  <body class="text-dark antialiased">
+
+    <!-- Navigation Bar -->
+    <header class="sticky-nav fixed top-0 left-0 w-full bg-white/90 backdrop-blur z-40 border-b border-primary/20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <a href="index.html" class="flex items-center gap-2">
+            <img src="original logo.png" alt="UNI Freelancer Logo" class="h-9 w-auto rounded-md shadow-sm" />
+            <span class="font-semibold tracking-tight text-dark text-lg">UNI Freelancers</span>
+          </a>
+          <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+            <a href="index.html" class="hover:text-primary">Home</a>
+            <a href="aboutus.html" class="text-primary font-semibold border-b-2 border-primary">About</a>
+            <a href="services.html" class="hover:text-primary">Services</a>
+            <a href="membership.html" class="px-3 py-1.5 rounded-full bg-primary text-white hover:bg-[#b94a00] shadow-md">Join Us</a>
+            <a href="contactus.html" class="hover:text-primary">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden pt-20">
+      <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1576381437642-26b70a444094?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-30"></div>
+      <div class="relative noise bg-gradient-to-b from-white/80 to-white/95 py-20 lg:py-28">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col gap-10">
+          <div class="lg:w-2/3">
+            <p class="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-primary bg-white/80 backdrop-blur px-3 py-1 rounded-full border border-primary/20">
+              Youth-led • Kibera • Digital Work
+            </p>
+            <h1 class="mt-5 text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-dark">
+              About UNI Freelancers
+            </h1>
+            <p class="mt-4 text-lg text-neutral-700 leading-relaxed">
+              From the heart of Kibera, we empower young people with digital skills and meaningful work — restoring dignity, unlocking potential, and transforming entire communities.
+            </p>
+          </div>
+
+          <!-- Gallery -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <img src="pic1.jpg" class="gallery-img rounded-2xl shadow-lg border border-primary/20 object-cover h-48 sm:h-56 w-full">
+            <img src="y1.webp" class="gallery-img rounded-2xl shadow-lg border border-primary/20 object-cover h-48 sm:h-56 w-full">
+            <img src="pic2.jpg" class="gallery-img rounded-2xl shadow-lg border border-primary/20 object-cover h-48 sm:h-56 w-full">
+            <img src="y3.jpg" class="gallery-img rounded-2xl shadow-lg border border-primary/20 object-cover h-48 sm:h-56 w-full">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7">
+          <h2 class="text-3xl font-bold text-dark">Our Story</h2>
+          <p class="mt-4 text-neutral-700 leading-relaxed">
+            Growing up in Kibera, we saw brilliant young people full of potential but trapped by unemployment and lack of opportunity.
+            We founded UNI Freelancers to bridge that gap — helping youth build digital skills and earn dignified incomes online.
+          </p>
+        </div>
+        <div class="lg:col-span-5 text-center">
+          <img src="ceo.JPG" class="rounded-2xl shadow-lg border-4 border-primary/40 object-cover w-[350px] h-[400px] mx-auto" />
+          <h3 class="mt-3 text-xl font-semibold text-dark">Kelvin Juma</h3>
+          <p class="text-sm text-neutral-600">Founder & CEO, UNI Freelancers</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="py-20 bg-primary/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold text-dark">Meet Our Team</h2>
+        <p class="mt-2 text-neutral-700">A passionate youth team leading the change.</p>
+        <div class="mt-10 grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+          <div>
+            <img src="beb.jpg" class="w-40 h-40 mx-auto rounded-full border-4 border-primary/40 object-cover shadow-md">
+            <h3 class="mt-3 font-semibold text-dark">Janet Otieno</h3>
+            <p class="text-sm text-neutral-600">Project Coordinator</p>
+          </div>
+          <div>
+            <img src="ceo.JPG" class="w-40 h-40 mx-auto rounded-full border-4 border-primary/40 object-cover shadow-md">
+            <h3 class="mt-3 font-semibold text-dark">Felix Ochieng</h3>
+            <p class="text-sm text-neutral-600">Data Specialist</p>
+          </div>
+          <div>
+            <img src="2.jpg" class="w-40 h-40 mx-auto rounded-full border-4 border-primary/40 object-cover shadow-md">
+            <h3 class="mt-3 font-semibold text-dark">Edwin White</h3>
+            <p class="text-sm text-neutral-600">Youth Trainer</p>
+          </div>
+          <div>
+            <img src="p2.jpg" class="w-40 h-40 mx-auto rounded-full border-4 border-primary/40 object-cover shadow-md">
+            <h3 class="mt-3 font-semibold text-dark">Camlock Brian</h3>
+            <p class="text-sm text-neutral-600">Operations Lead</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact Counters -->
+    <section class="py-20 bg-white border-t border-primary/20 text-center">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-dark">Our Impact</h2>
+        <p class="mt-2 text-neutral-700">Real stories. Real transformation.</p>
+        <div class="mt-10 grid sm:grid-cols-3 gap-10">
+          <div>
+            <p class="text-5xl font-bold text-primary counter" data-target="15">0</p>
+            <p class="mt-2 text-neutral-700">Youth Trained</p>
+          </div>
+          <div>
+            <p class="text-5xl font-bold text-primary counter" data-target="50">0</p>
+            <p class="mt-2 text-neutral-700">Projects Completed</p>
+          </div>
+          <div>
+            <p class="text-5xl font-bold text-primary counter" data-target="2">0</p>
+            <p class="mt-2 text-neutral-700">Partner Organizations</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-primary/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold text-dark">What People Say</h2>
+        <div class="mt-10 grid md:grid-cols-3 gap-6">
+          <div class="testimonial p-6 bg-white border border-primary/20 rounded-2xl shadow-sm">
+            <img src="ceo.JPG" class="w-20 h-20 mx-auto rounded-full mb-4">
+            <p class="italic text-neutral-700">“Working with UNI Freelancers transformed our workflows. The team is reliable and inspiring.”</p>
+            <p class="mt-4 font-semibold text-primary">— NGO Partner</p>
+          </div>
+          <div class="testimonial p-6 bg-white border border-primary/20 rounded-2xl shadow-sm">
+            <img src="team1.jpg" class="w-20 h-20 mx-auto rounded-full mb-4">
+            <p class="italic text-neutral-700">“UNI Freelancers gave me my first online job and confidence to dream bigger.”</p>
+            <p class="mt-4 font-semibold text-primary">— Youth Member</p>
+          </div>
+          <div class="testimonial p-6 bg-white border border-primary/20 rounded-2xl shadow-sm">
+            <img src="team2.jpg" class="w-20 h-20 mx-auto rounded-full mb-4">
+            <p class="italic text-neutral-700">“Kelvin’s team shows what local innovation can achieve when given a chance.”</p>
+            <p class="mt-4 font-semibold text-primary">— Community Leader</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 bg-white">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10">
+        <div class="lg:col-span-6">
+          <h2 class="text-3xl font-bold text-dark">Contact Us</h2>
+          <p class="mt-3 text-neutral-700">Based in Kibera, Nairobi • Serving Kenya & beyond</p>
+          <div class="mt-6 space-y-3 text-neutral-700">
+            <p><strong>Email:</strong> <a href="mailto:unifreelancerscompany@gmail.com" class="underline text-primary">unifreelancerscompany@gmail.com</a></p>
+            <p><strong>Phone/WhatsApp:</strong> <a href="tel:+254746917160" class="underline text-primary">+254 746 917 160</a></p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6">
+          <form action="https://formspree.io/f/mjkapbjk" method="POST" class="p-6 rounded-2xl bg-primary/5 border border-primary/30 shadow-sm">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-dark">Full Name</label>
+                <input type="text" name="name" required class="mt-1 w-full rounded-xl border border-primary/30 px-3 py-2 focus:ring-2 focus:ring-primary">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-dark">Email</label>
+                <input type="email" name="email" required class="mt-1 w-full rounded-xl border border-primary/30 px-3 py-2 focus:ring-2 focus:ring-primary">
+              </div>
+              <div class="sm:col-span-2">
+                <label class="block text-sm font-medium text-dark">Message</label>
+                <textarea name="message" rows="4" required class="mt-1 w-full rounded-xl border border-primary/30 px-3 py-2 focus:ring-2 focus:ring-primary"></textarea>
+              </div>
+            </div>
+            <button type="submit" class="mt-4 inline-flex items-center justify-center rounded-xl bg-primary px-5 py-3 text-white font-medium hover:bg-[#b94a00]">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-primary/20 py-10 bg-white text-center text-sm text-neutral-700">
+      © <span id="year"></span> UNI Freelancers. All rights reserved.
+    </footer>
+
+    <script>
+      // Dynamic year and counters
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const counters = document.querySelectorAll('.counter');
+      counters.forEach(counter => {
+        const update = () => {
+          const target = +counter.getAttribute('data-target');
+          const current = +counter.innerText;
+          const increment = target / 150;
+          if (current < target) {
+            counter.innerText = Math.ceil(current + increment);
+            setTimeout(update, 30);
+          } else counter.innerText = target;
+        };
+        update();
+      });
+
+      // Navbar scroll effect
+      window.addEventListener('scroll', () => {
+        const nav = document.querySelector('header.sticky-nav');
+        if (window.scrollY > 10) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+      });
+    </script>
+  </body>
+</html>
+
+
