@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Data Entry Services • UNI Freelancers</title>
+  <meta name="description" content="UNI Freelancers — Accurate, secure, timely data entry & processing. Recent projects, client reports, and trust indicators." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ----------------------
+       Variables & base
+       ---------------------- */
+    :root{
+      --primary: #cc5500;
+      --primary-dark: #a44400;
+      --bg: #fffaf5;
+      --muted: #6b6b6b;
+      --card: #fff8f2;
+      --max-width: 1200px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container{max-width:var(--max-width); margin:0 auto; padding:0 16px;}
+
+    /* ----------------------
+       NAV
+       ---------------------- */
+    nav{
+      position:sticky;
+      top:0;
+      z-index:60;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;}
+    .brand{display:flex;align-items:center;gap:12px;}
+    .brand img{height:44px;width:auto;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+    .brand .title{font-weight:700;color:var(--primary);font-size:1.05rem}
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links a{color:var(--primary);font-weight:600}
+    .nav-links a:hover{color:var(--primary-dark)}
+
+    /* small screen menu button */
+    .menu-btn{display:none;border:0;background:transparent;font-size:1.1rem;color:var(--primary)}
+    @media(max-width:880px){
+      .nav-links{display:none}
+      .menu-btn{display:inline-flex}
+    }
+
+    /* ----------------------
+       HERO
+       ---------------------- */
+    .hero{
+      position:relative;
+      height:78vh;
+      min-height:480px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      overflow:hidden;
+      color:#fff;
+      background-size:cover;
+      background-position:center;
+      background-image: url('datae3.jpg');
+    }
+    .hero::after{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55));
+      z-index:1;
+    }
+    .hero .inner{position:relative;z-index:2;max-width:920px;padding:0 18px}
+    .hero h1{font-size:2.6rem;margin:0 0 8px;font-weight:800;letter-spacing:-0.5px}
+    .hero p{margin:0 0 18px;color:rgba(255,255,255,0.95);font-size:1.05rem}
+    .hero .cta{display:inline-flex;gap:12px;flex-wrap:wrap;justify-content:center}
+    .btn{
+      background:var(--primary);
+      color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;
+      display:inline-flex;align-items:center;gap:10px;border:0;box-shadow:0 6px 18px rgba(204,85,0,0.12);
+    }
+    .btn:hover{background:var(--primary-dark);cursor:pointer}
+
+    /* ----------------------
+       Projects
+       ---------------------- */
+    section{padding:44px 0}
+    .section-title{display:flex;align-items:center;gap:14px;justify-content:center;margin-bottom:18px}
+    .section-title h2{color:var(--primary);margin:0;font-size:1.6rem}
+    .lead{color:var(--muted);max-width:900px;margin:10px auto 26px;text-align:center}
+
+    .grid{
+      display:grid;
+      gap:20px;
+      grid-template-columns:repeat(3,1fr);
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:0 16px;
+    }
+    .card{
+      background:var(--card);
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 6px 18px rgba(0,0,0,0.06);
+      transition:transform .25s ease, box-shadow .25s ease;
+      display:flex;flex-direction:column;
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.09)}
+    .card img{width:100%;height:180px;object-fit:cover;display:block}
+    .card .body{padding:16px;flex:1;display:flex;flex-direction:column;justify-content:space-between}
+    .card h3{margin:0 0 8px;color:var(--primary);font-size:1.05rem}
+    .card p{margin:0 0 12px;color:#444;font-size:0.95rem}
+    .card .meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+
+    .small-btn{background:#fff;border:1px solid rgba(0,0,0,0.06);color:var(--primary);padding:8px 12px;border-radius:8px;font-weight:700}
+    .small-btn:hover{background:#fffefc}
+
+    /* ----------------------
+       Report preview row
+       ---------------------- */
+    .report-row{display:flex;gap:18px;flex-wrap:wrap;align-items:stretch;justify-content:center;margin-top:16px}
+    .report-card{
+      width:320px;background:#fff;border-radius:10px;border:1px solid rgba(0,0,0,0.04);
+      padding:10px;display:flex;flex-direction:column;gap:10px;box-shadow:0 6px 16px rgba(0,0,0,0.04)
+    }
+    .report-card img{width:100%;height:180px;object-fit:cover;border-radius:6px}
+    .report-card .view{display:flex;gap:8px;align-items:center;justify-content:space-between}
+
+    /* ----------------------
+       Trust & testimonials
+       ---------------------- */
+    .trust-box{display:flex;gap:20px;flex-wrap:wrap;align-items:stretch;justify-content:center}
+    .trust-item{background:#fff;padding:18px;border-radius:12px;min-width:220px;max-width:300px;box-shadow:0 6px 18px rgba(0,0,0,0.04)}
+    .trust-item i{font-size:28px;color:var(--primary);display:block;margin-bottom:8px}
+
+    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:18px auto}
+    .testimonial{background:#fff;border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,0.04)}
+    .testimonial img{width:56px;height:56px;border-radius:50%;object-fit:cover;margin-right:12px}
+
+    /* ----------------------
+       CTA strip
+       ---------------------- */
+    .cta-strip{background:linear-gradient(90deg,var(--primary),var(--primary-dark));color:#fff;padding:34px 16px;border-radius:12px;margin:30px auto;max-width:980px;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .cta-strip h3{margin:0;font-size:1.2rem}
+    .cta-strip p{margin:0;color:rgba(255,255,255,0.95)}
+
+    /* ----------------------
+       Modal (PDF viewer)
+       ---------------------- */
+    .modal{
+      position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:2000;padding:20px;
+    }
+    .modal.open{display:flex}
+    .modal .sheet{
+      width:100%;max-width:1000px;height:80vh;background:#fff;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;
+    }
+    .modal .sheet .top{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:#fff;border-bottom:1px solid rgba(0,0,0,0.06)}
+    .modal .sheet .top .title{font-weight:700;color:var(--primary)}
+    .modal .sheet iframe{flex:1;border:0;width:100%}
+
+    /* ----------------------
+       Responsive
+       ---------------------- */
+    @media(max-width:1100px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .testimonials{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:720px){
+      .hero{height:64vh;min-height:420px}
+      .grid{grid-template-columns:1fr}
+      .trust-item{width:100%}
+      .testimonials{grid-template-columns:1fr}
+      .cta-strip{flex-direction:column;align-items:stretch}
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container nav-inner">
+      <div class="brand">
+        <img src="original logo.png" alt="UNI Freelancers">
+        <div class="title">UNI Freelancers</div>
+      </div>
+
+      <div class="nav-links" id="navlinks">
+        <a href="index.html">Home</a>
+        <a href="webdesign.html">Web Design</a>
+        <a href="dataentry.html">Data Entry</a>
+        <a href="training.html">Training</a>
+        <a href="empowerment.html">Empowerment</a>
+        <a href="hireus.html">Hire Us</a>
+      </div>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu"><i class="fa fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="inner container">
+      <h1>Professional Data Entry Services — Accurate, Secure, Timely</h1>
+      <p>We help NGOs, universities and small businesses digitize and organize data so it’s ready for analysis and decision-making.</p>
+      <div class="cta">
+        <a class="btn" href="#projects"><i class="fa fa-eye"></i> See Recent Projects</a>
+        <a class="btn" href="mailto:unifreelancerscompany@gmail.com"><i class="fa fa-envelope"></i> Request Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-title">
+        <h2>Recent Data Entry Projects</h2>
+      </div>
+      <p class="lead">Selected projects we completed recently — click “View Report” to see the project deliverable (PDF or sample screenshot).</p>
+
+      <div class="grid" role="list">
+        <!-- Project 1 -->
+        <article class="card" role="listitem">
+          <img src="project1.jpg" alt="Community Health Records">
+          <div class="body">
+            <div>
+              <h3>Community Health Records Digitization</h3>
+              <p>Converted 3,000+ handwritten health records into a clean digital database for a Kibera-based NGO; included QC and data validation.</p>
+            </div>
+            <div class="meta">
+              <button class="small-btn" data-preview="report1.pdf" data-title="Community Health — Final Report">📄 View Report</button>
+              <a class="small-btn" href="report1.pdf" target="_blank" rel="noopener">Open PDF</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="card" role="listitem">
+          <img src="project2.jpg" alt="Market Survey Data Entry">
+          <div class="body">
+            <div>
+              <h3>Market Survey Data Compilation</h3>
+              <p>Processed and organized thousands of survey rows into analysis-ready CSVs for a youth entrepreneurship study (100% double-entry QC).</p>
+            </div>
+            <div class="meta">
+              <!-- example screenshot preview (png) -->
+              <button class="small-btn" data-preview="report2.pdf" data-title="Market Survey — Summary Report">📄 View Report</button>
+              <a class="small-btn" href="report2.pdf" target="_blank" rel="noopener">Open PDF</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="card" role="listitem">
+          <img src="project3.jpg" alt="University Alumni DB">
+          <div class="body">
+            <div>
+              <h3>University Alumni Database</h3>
+              <p>Digitized alumni records and built a clean searchable spreadsheet for Chuka University — improved contact reach by 80%.</p>
+            </div>
+            <div class="meta">
+              <!-- This one demonstrates an image preview (screenshot of spreadsheet) -->
+              <button class="small-btn" data-preview="report1.png" data-title="Alumni Database — Screenshot">🖼️ View Screenshot</button>
+              <a class="small-btn" href="project3.jpg" target="_blank" rel="noopener">Open Image</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- small report previews under projects -->
+      <div class="report-row" style="margin-top:24px;">
+        <div class="report-card">
+          <strong>Community Health — excerpt</strong>
+          <img src="report1-thumb.jpg" alt="Report 1 thumbnail">
+          <div class="view">
+            <small class="muted">PDF • 18 pages</small>
+            <div>
+              <button class="small-btn" data-preview="report1.pdf" data-title="Community Health — Final Report">View</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="report-card">
+          <strong>Market Survey — summary</strong>
+          <img src="report2-thumb.jpg" alt="Report 2 thumbnail">
+          <div class="view">
+            <small class="muted">PDF • 8 pages</small>
+            <div>
+              <button class="small-btn" data-preview="report2.pdf" data-title="Market Survey — Summary Report">View</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="report-card">
+          <strong>Alumni DB — sample</strong>
+          <img src="report1.png" alt="Alumni screenshot">
+          <div class="view">
+            <small class="muted">Image • screenshot</small>
+            <div>
+              <button class="small-btn" data-preview="report1.png" data-title="Alumni Database — Screenshot">View</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section aria-labelledby="trust-heading" style="padding-bottom:12px;">
+    <div class="container">
+      <div class="section-title">
+        <h2 id="trust-heading">Why clients trust our data entry work</h2>
+      </div>
+      <p class="lead">We combine training, quality checks and secure practices so you can rely on data that’s ready for analysis and decision-making.</p>
+
+      <div class="trust-box" style="margin-top:18px;">
+        <div class="trust-item">
+          <i class="fa-solid fa-users-gear"></i>
+          <h4>Trained Local Talent</h4>
+          <p class="muted">Youth trained in data entry, MS Excel, data cleaning and M&E basics.</p>
+        </div>
+        <div class="trust-item">
+          <i class="fa-solid fa-check-circle"></i>
+          <h4>Double-entry QC</h4>
+          <p class="muted">We use double-entry and reconciliation for critical datasets to ensure accuracy.</p>
+        </div>
+        <div class="trust-item">
+          <i class="fa-solid fa-shield-halved"></i>
+          <h4>Data Confidentiality</h4>
+          <p class="muted">Strict access controls, secure file transfer and NDA options available.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section style="padding-top:6px;">
+    <div class="container">
+      <div class="section-title"><h2>Client Testimonials</h2></div>
+
+      <div class="testimonials" role="list">
+        <div class="testimonial" role="listitem">
+          <div style="display:flex;align-items:center;margin-bottom:12px">
+            <img src="chuka.webp" alt="Chuka Uni">
+            <div>
+              <strong>Chuka University</strong>
+              <div style="font-size:0.9rem;color:var(--muted)">Project Lead</div>
+            </div>
+          </div>
+          <p>"Their team digitized our records on time and with excellent quality — highly recommended."</p>
+        </div>
+
+        <div class="testimonial" role="listitem">
+          <div style="display:flex;align-items:center;margin-bottom:12px">
+            <img src="chezacheza.png" alt="NGO">
+            <div>
+              <strong>Grassroots NGO</strong>
+              <div style="font-size:0.9rem;color:var(--muted)">Program Manager</div>
+            </div>
+          </div>
+          <p>"Reliable, precise and very responsive. The youth team was professional throughout."</p>
+        </div>
+
+        <div class="testimonial" role="listitem">
+          <div style="display:flex;align-items:center;margin-bottom:12px">
+            <img src="leon1.png" alt="Local Business">
+            <div>
+              <strong>Local Retail Group</strong>
+              <div style="font-size:0.9rem;color:var(--muted)">Owner</div>
+            </div>
+          </div>
+          <p>"They helped digitize our inventory and taught us simple tools to keep it updated."</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding:40px 0;">
+    <div class="container">
+      <div class="cta-strip">
+        <div>
+          <h3>Need accurate, fast data entry?</h3>
+          <p>Get a free quote and sample validation run — we’ll show you our process and a short sample before any payment.</p>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center">
+          <a class="btn" href="mailto:unifreelancerscompany@gmail.com"><i class="fa fa-envelope"></i> Request Quote</a>
+          <a class="btn" href="hireus.html"><i class="fa fa-briefcase"></i> Hire Our Team</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:var(--primary);color:#fff;padding:20px 0;text-align:center">
+    <div class="container">
+      © <span id="yr"></span> UNI Freelancers • Trusted data entry & digital skills in Kibera
+    </div>
+  </footer>
+
+  <!-- Modal: PDF / image viewer -->
+  <div id="viewerModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="sheet" role="document">
+      <div class="top">
+        <div class="title" id="modalTitle">Report Preview</div>
+        <div>
+          <button id="downloadBtn" class="small-btn" style="margin-right:8px">Download</button>
+          <button id="closeModal" class="small-btn">Close ✕</button>
+        </div>
+      </div>
+      <!-- iframe for pdf or image displayed -->
+      <iframe id="viewerFrame" src="" title="Report Viewer"></iframe>
+    </div>
+  </div>
+
+  <script>
+    // small helpers
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navlinks');
+    menuBtn.addEventListener('click', ()=>{
+      if(navLinks.style.display === 'flex') navLinks.style.display = '';
+      else navLinks.style.display = 'flex';
+    });
+
+    // Modal viewer logic
+    const modal = document.getElementById('viewerModal');
+    const viewerFrame = document.getElementById('viewerFrame');
+    const titleEl = document.getElementById('modalTitle');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    // open viewer when any button with data-preview is clicked
+    document.querySelectorAll('[data-preview]').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{
+        const src = btn.getAttribute('data-preview');
+        const title = btn.getAttribute('data-title') || 'Report preview';
+        openViewer(src, title);
+      });
+    });
+
+    function openViewer(src, title){
+      titleEl.textContent = title;
+      // if file is an image (png/jpg) just show it in iframe (works), if pdf, use browser viewer
+      viewerFrame.src = src;
+      downloadBtn.onclick = ()=>{ window.open(src, '_blank'); };
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+    }
+
+    document.getElementById('closeModal').addEventListener('click', closeViewer);
+    modal.addEventListener('click', (e)=>{
+      if(e.target === modal) closeViewer();
+    });
+
+    function closeViewer(){
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+      viewerFrame.src = '';
+      document.body.style.overflow='';
+    }
+
+    // keyboard ESC to close
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape' && modal.classList.contains('open')) closeViewer();
+    });
+  </script>
+</body>
+</html>

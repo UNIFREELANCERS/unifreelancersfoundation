@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Training • UNI Freelancer</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      color: #333;
+      background: #fff;
+    }
+
+    nav {
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em 2em;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      height: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: orangered;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      color: #ffd700;
+    }
+
+    header {
+      background: url('d1.jpeg') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 6em 1em;
+      position: relative;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    header h1, header p {
+      position: relative;
+      z-index: 2;
+    }
+
+    section {
+      padding: 3em 2em;
+      text-align: center;
+    }
+
+    .programs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2em;
+      margin-top: 2em;
+    }
+
+    .program {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 1.5em;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .program:hover {
+      transform: translateY(-5px);
+    }
+
+    .program i {
+      font-size: 2em;
+      color: #cc5500;
+      margin-bottom: 0.5em;
+    }
+
+    footer {
+      background: #cc5500;
+      color: white;
+      text-align: center;
+      padding: 1.5em;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 4em 1em;
+      }
+      .programs {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <img src="original logo.png" alt="UNI Freelancer Logo" class="logo" />
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="dataentry.html">Data Entry</a></li>
+      <li><a href="webdesign.html">Web Design</a></li>
+      <li><a href="empowerment.html">Empowerment</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Digital Training</h1>
+    <p>Building digital skills that open doors to opportunities</p>
+  </header>
+
+  <section>
+    <h2>Our Programs</h2>
+    <p>We train youth to become competitive in today’s digital economy — helping them learn, earn, and thrive online.</p>
+
+    <div class="programs">
+      <div class="program">
+        <i class="fa-solid fa-laptop-code"></i>
+        <h3>Web Design</h3>
+        <p>Learn modern web design tools and techniques to build professional websites.</p>
+      </div>
+      <div class="program">
+        <i class="fa-solid fa-keyboard"></i>
+        <h3>Data Entry</h3>
+        <p>Master precision and speed in handling data for online businesses and organizations.</p>
+      </div>
+      <div class="program">
+        <i class="fa-solid fa-pen-to-square"></i>
+        <h3>Transcription</h3>
+        <p>Develop listening and typing skills to earn through accurate transcription work.</p>
+      </div>
+      <div class="program">
+        <i class="fa-solid fa-users"></i>
+        <h3>Digital Literacy</h3>
+        <p>Essential training on Microsoft Office, Google Workspace, and online professionalism.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 UNI Freelancer • Empowering Youth Through Digital Skills</p>
+  </footer>
+</body>
+</html>
