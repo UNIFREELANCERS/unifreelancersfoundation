@@ -76,6 +76,21 @@
       color: #ffd700;
     }
 
+    /* ======= HAMBURGER ======= */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: #cc5500;
+      margin: 4px 0;
+      transition: all 0.3s ease;
+    }
+
     /* ======= HERO SECTION ======= */
     .hero {
       position: relative;
@@ -270,7 +285,26 @@
     @media (max-width: 768px) {
       .hero h1 { font-size: 1.8rem; }
       .hero p { font-size: 1rem; }
-      nav ul { display: none; }
+
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
     }
   </style>
 </head>
@@ -279,13 +313,18 @@
   <!-- ======= NAVIGATION ======= -->
   <nav>
     <img src="original logo.png" alt="UNI Freelancer Logo" class="logo" />
-    <ul>
+    <ul id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="aboutus.html">About</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="hireus.html">Hire Us</a></li>
       <li><a href="donateus.html">Donate/Support</a></li>
     </ul>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </nav>
 
   <!-- ======= HERO SECTION ======= -->
@@ -326,15 +365,13 @@
     </div>
   </section>
 
-
-     <!-- ======= REWARDS SECTION ======= -->
+  <!-- ======= REWARDS SECTION ======= -->
   <section class="rewards">
     <h2>Rewards & Recognition</h2>
     <div class="reward-list">
       <div class="reward-item">
         <i class="fa fa-trophy"></i>
         <h4>Best Youth Empowerment Initiative 2025</h4>
-        <!-- Embedded PDF Certificate -->
         <iframe src="CEC - Certificate of participation-21.pdf" width="100%" height="300px" style="border:none; border-radius:10px;"></iframe>
       </div>
 
@@ -348,9 +385,8 @@
         <i class="fa fa-heart"></i>
         <h4>Partner Appreciation Award</h4>
         <iframe src="award3.pdf" width="100%" height="300px" style="border:none; border-radius:10px;"></iframe>
+      </div>
     </div>
-  </section>
-
   </section>
 
   <!-- ======= VIDEOS SECTION ======= -->
@@ -406,5 +442,16 @@
   <footer>
     <p>© 2025 UNI freelancers. All rights reserved.</p>
   </footer>
+
+  <!-- ======= JS FOR HAMBURGER ======= -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
+
