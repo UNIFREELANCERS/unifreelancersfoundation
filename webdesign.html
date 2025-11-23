@@ -47,6 +47,21 @@
       color: #ffd700;
     }
 
+    /* Hamburger Menu */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: orangered;
+      font-size: 1.5em;
+      cursor: pointer;
+      padding: 0.5em;
+    }
+
+    .menu-toggle:hover {
+      color: #ffd700;
+    }
+
     header {
       background: url('webpic.webp') center/cover no-repeat;
       color: white;
@@ -111,6 +126,23 @@
       margin: 0.5em 0;
     }
 
+    .project-link {
+      display: inline-block;
+      margin-top: 1em;
+      padding: 0.6em 1.2em;
+      background: #cc5500;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .project-link:hover {
+      background: #ff6600;
+      transform: scale(1.05);
+    }
+
     .cta {
       background: #cc5500;
       color: white;
@@ -145,7 +177,42 @@
       padding: 1.5em;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        padding: 1em;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        gap: 10px;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav ul li {
+        width: 100%;
+      }
+
+      nav ul li a {
+        display: block;
+        padding: 0.8em;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      nav {
+        position: relative;
+      }
+
       header {
         padding: 5em 1em;
       }
@@ -163,7 +230,10 @@
 <body>
   <nav>
     <img src="original logo.png" alt="UNI Freelancer Logo" class="logo" />
-    <ul>
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul id="nav-menu">
       <li><a href="index.html">Home</a></li>
       <li><a href="dataentry.html">Data Entry</a></li>
       <li><a href="training.html">Training</a></li>
@@ -177,7 +247,7 @@
     <p>We build clean, modern and responsive websites that tell your story and attract clients</p>
   </header>
 
-  <section>
+  <section id="projects">
     <h2>Our Recent Projects</h2>
     <p>From local startups to growing brands, we design websites that stand out and deliver results.</p>
 
@@ -187,6 +257,7 @@
         <div class="project-content">
           <h3>Chezacheza Foundation</h3>
           <p>A vibrant and user-friendly NGO website showcasing youth empowerment projects and initiatives.</p>
+          <a href="#projects" class="project-link">View Project</a>
         </div>
       </div>
 
@@ -195,6 +266,7 @@
         <div class="project-content">
           <h3>Youth Hub</h3>
           <p>A modern portfolio and community engagement platform designed for youth-led innovation.</p>
+          <a href="#projects" class="project-link">View Project</a>
         </div>
       </div>
 
@@ -203,6 +275,7 @@
         <div class="project-content">
           <h3>Local Business Portfolio</h3>
           <p>Helping small business owners in Kibera showcase their products online and reach more customers.</p>
+          <a href="#projects" class="project-link">View Project</a>
         </div>
       </div>
     </div>
@@ -217,5 +290,35 @@
   <footer>
     <p>© 2025 UNI Freelancers • Web Design with Purpose</p>
   </footer>
+
+  <script>
+    // Hamburger menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      // Toggle icon between hamburger and X
+      const icon = menuToggle.querySelector('i');
+      if (navMenu.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+
+    // Close menu when clicking on a link
+    const navLinks = document.querySelectorAll('#nav-menu a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      });
+    });
+  </script>
 </body>
 </html>
