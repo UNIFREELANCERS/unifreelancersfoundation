@@ -2,13 +2,13 @@
 // daraja.php - MPesa STK Push Sandbox Integration
 
 // Sandbox credentials
-$consumerKey = 'YOUR_CONSUMER_KEY';
-$consumerSecret = 'YOUR_CONSUMER_SECRET';
+$consumerKey = 'AP5uFUZQFBbYHaPWKYsAXvxuAgzRWTmQQFJEg0shV8n1q74C';
+$consumerSecret = 'cqAiEFAvZDIpplcGZRfM1K6PfnnpCIKVAYwmdbKbZ3rCbJrrmBDGGAY33MTdqtDG';
 $shortcode = '174379'; // Sandbox shortcode
-$passkey = 'YOUR_PASSKEY';
-$phoneNumber = '2547XXXXXXXX'; // Test phone number (sandbox)
+$passkey = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919';
+$phoneNumber = '254746917160'; // Test phone number (sandbox)
 $amount = 1; // Amount to charge
-$callbackURL = 'https://yourdomain.com/callback.php'; // Your callback URL
+$callbackURL = 'https://unifreelancers.work/callback.php'; // Your callback URL
 
 // Get OAuth Token
 function getAccessToken($consumerKey, $consumerSecret) {
@@ -70,3 +70,4 @@ if ($accessToken) {
     echo "Failed to get access token.";
 }
 ?>
+
