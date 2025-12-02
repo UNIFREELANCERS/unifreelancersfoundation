@@ -103,11 +103,11 @@
       
       <!-- Tabs for donation type -->
       <div class="flex gap-4 mb-8 justify-center">
-        <button onclick="switchTab('message')" class="tab-btn active px-6 py-2 rounded-lg font-semibold transition" id="tab-message">
+        <button onclick="switchTab('message')" class="tab-btn active px-6 py-2 rounded-lg font-semibold transition bg-yellow-600 text-white shadow" id="tab-message">
           💬 Donation Message
         </button>
-        <button onclick="switchTab('mpesa')" class="tab-btn px-6 py-2 rounded-lg font-semibold transition" id="tab-mpesa">
-          📱 Pay with M-Pesa
+        <button onclick="switchTab('paystack')" class="tab-btn px-6 py-2 rounded-lg font-semibold transition bg-white text-yellow-700 border border-yellow-200" id="tab-paystack">
+          💳 Pay via Paystack
         </button>
       </div>
 
@@ -148,34 +148,34 @@
         </form>
       </div>
 
-      <!-- M-Pesa Payment Tab -->
-      <div id="mpesa-tab" class="tab-content hidden">
-        <form id="mpesa-form" class="space-y-6">
+      <!-- Paystack Payment Tab -->
+      <div id="paystack-tab" class="tab-content hidden">
+        <form id="paystack-form" class="space-y-6">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <label class="block text-sm font-medium mb-1">Full Name</label>
-              <input type="text" id="donor-name" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+              <input type="text" id="paystack-name" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
             </div>
             <div>
               <label class="block text-sm font-medium mb-1">Email Address</label>
-              <input type="email" id="donor-email" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+              <input type="email" id="paystack-email" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
             </div>
           </div>
 
           <div>
-            <label class="block text-sm font-medium mb-1">Phone Number (M-Pesa Account)</label>
-            <input type="tel" id="phone-number" placeholder="254712345678" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
-            <p class="text-xs text-gray-500 mt-1">Include country code (e.g., 254 for Kenya)</p>
+            <label class="block text-sm font-medium mb-1">Phone Number</label>
+            <input type="tel" id="paystack-phone" placeholder="e.g., +254712345678" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
           </div>
 
           <div>
-            <label class="block text-sm font-medium mb-1">Donation Amount (KES)</label>
-            <input type="number" id="amount" min="100" placeholder="1000" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+            <label class="block text-sm font-medium mb-1">Donation Amount</label>
+            <input type="number" id="donation-amount" min="1" placeholder="Enter amount" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+            <p class="text-xs text-gray-500 mt-1">Minimum accepted amount depends on your selected currency.</p>
           </div>
 
           <div>
             <label class="block text-sm font-medium mb-1">Donation Purpose</label>
-            <select id="purpose" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+            <select id="donation-purpose" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
               <option value="">Select Purpose</option>
               <option value="General Fund">General Fund</option>
               <option value="Computer Donation">Computer Donation</option>
@@ -185,20 +185,28 @@
             </select>
           </div>
 
-          <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <p class="text-sm text-blue-800">
-              <strong>How it works:</strong> Click the button below and enter your M-Pesa PIN when prompted on your phone.
-              You'll receive a confirmation SMS once the payment is complete.
+          <div>
+            <label class="block text-sm font-medium mb-1">Preferred Currency</label>
+            <select id="donation-currency" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+              <option value="KES">KES</option>
+              <option value="NGN">NGN</option>
+              <option value="USD">USD</option>
+            </select>
+          </div>
+
+          <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+            <p class="text-sm text-green-800">
+              <strong>How it works:</strong> Click the button below, complete the secure Paystack checkout, and receive instant confirmation. Funds are routed directly to UNI Freelancers.
             </p>
           </div>
 
           <div class="text-center">
-            <button type="button" onclick="initiateMpesaPayment()" class="bg-green-600 text-white px-8 py-3 rounded-xl font-semibold shadow hover:bg-green-700 transition" id="mpesa-btn">
-              📱 Initiate M-Pesa Payment
+            <button type="button" onclick="initiatePaystackPayment()" class="bg-green-600 text-white px-8 py-3 rounded-xl font-semibold shadow hover:bg-green-700 transition" id="paystack-btn">
+              💳 Pay with Paystack
             </button>
-            <p id="loading-message" class="text-sm text-gray-600 mt-3 hidden">Processing payment... Please check your phone for the M-Pesa prompt.</p>
-            <p id="error-message" class="text-sm text-red-600 mt-3 hidden"></p>
-            <p id="success-message" class="text-sm text-green-600 mt-3 hidden"></p>
+            <p id="paystack-loading" class="text-sm text-gray-600 mt-3 hidden">Initializing secure payment... Please follow the Paystack prompt.</p>
+            <p id="paystack-error" class="text-sm text-red-600 mt-3 hidden"></p>
+            <p id="paystack-success" class="text-sm text-green-600 mt-3 hidden"></p>
           </div>
         </form>
       </div>
@@ -211,13 +219,122 @@
       <p>© 2025 UNI Freelancers. Empowering youth through digital opportunity.</p>
       <div class="space-x-4 mt-4 md:mt-0">
         <a href="https://www.instagram.com/unifreelancers.company" class="hover:text-yellow-300">Instagram</a>
-        <a href="#" class="hover:text-yellow-300">TikTok</a>
-        <a href="#" class="hover:text-yellow-300">LinkedIn</a>
+        <a href="https://www.tiktok.com/@uni.freelancers.f?is_from_webapp=1&sender_device=pc" class="hover:text-yellow-300">TikTok</a>
+        <a href="https://www.linkedin.com/in/kelvin-j-867488383?utm_source=share_via&utm_content=profile&utm_medium=member_ios" class="hover:text-yellow-300">LinkedIn</a>
       </div>
     </div>
   </footer>
 
-  <script src="mpesa-payment.js"></script>
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script>
+    const PAYSTACK_PUBLIC_KEY = 'https://paystack.shop/pay/unifreelancers-youths-donations'; // Replace with your Paystack public key
+
+    function switchTab(tab) {
+      const tabs = ['message', 'paystack'];
+      tabs.forEach((name) => {
+        const button = document.getElementById(`tab-${name}`);
+        const content = document.getElementById(`${name}-tab`);
+        const isActive = name === tab;
+
+        if (button && content) {
+          content.classList.toggle('hidden', !isActive);
+          button.classList.toggle('bg-yellow-600', isActive);
+          button.classList.toggle('text-white', isActive);
+          button.classList.toggle('shadow', isActive);
+          button.classList.toggle('bg-white', !isActive);
+          button.classList.toggle('text-yellow-700', !isActive);
+          button.classList.toggle('border', !isActive);
+          button.classList.toggle('border-yellow-200', !isActive);
+        }
+      });
+    }
+
+    function showStatus(type, message) {
+      const loading = document.getElementById('paystack-loading');
+      const error = document.getElementById('paystack-error');
+      const success = document.getElementById('paystack-success');
+
+      if (loading) loading.classList.add('hidden');
+      if (error) error.classList.add('hidden');
+      if (success) success.classList.add('hidden');
+
+      if (type === 'loading' && loading) {
+        loading.textContent = message;
+        loading.classList.remove('hidden');
+      }
+
+      if (type === 'error' && error) {
+        error.textContent = message;
+        error.classList.remove('hidden');
+      }
+
+      if (type === 'success' && success) {
+        success.textContent = message;
+        success.classList.remove('hidden');
+      }
+    }
+
+    function initiatePaystackPayment() {
+      const name = document.getElementById('paystack-name').value.trim();
+      const email = document.getElementById('paystack-email').value.trim();
+      const phone = document.getElementById('paystack-phone').value.trim();
+      const amountInput = document.getElementById('donation-amount').value;
+      const purpose = document.getElementById('donation-purpose').value;
+      const currency = document.getElementById('donation-currency').value || 'KES';
+
+      const amount = Number(amountInput);
+      if (!PAYSTACK_PUBLIC_KEY || PAYSTACK_PUBLIC_KEY.includes('replace')) {
+        showStatus('error', 'Paystack public key is missing. Please configure it before accepting payments.');
+        return;
+      }
+
+      if (!name || !email || !phone || !purpose || !amount || amount <= 0) {
+        showStatus('error', 'Please fill in all required fields with valid details.');
+        return;
+      }
+
+      showStatus('loading', 'Initializing secure payment... Please wait.');
+
+      const handler = PaystackPop.setup({
+        key: PAYSTACK_PUBLIC_KEY,
+        email,
+        amount: Math.round(amount * 100),
+        currency,
+        ref: `UNI-${Date.now()}`,
+        metadata: {
+          custom_fields: [
+            {
+              display_name: 'Donor Name',
+              variable_name: 'donor_name',
+              value: name,
+            },
+            {
+              display_name: 'Phone Number',
+              variable_name: 'phone_number',
+              value: phone,
+            },
+            {
+              display_name: 'Donation Purpose',
+              variable_name: 'donation_purpose',
+              value: purpose,
+            },
+          ],
+        },
+        callback: function (response) {
+          showStatus('success', 'Payment received! Reference: ' + response.reference);
+          document.getElementById('paystack-form').reset();
+        },
+        onClose: function () {
+          showStatus('error', 'Payment window closed. You can try again anytime.');
+        },
+      });
+
+      handler.openIframe();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      switchTab('message');
+    });
+  </script>
 </body>
 </html>
-
