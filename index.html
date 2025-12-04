@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,8 +57,25 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    nav .logo {
-      height: 50px;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand .logo {
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      border: 3px solid #cc5500;
+      object-fit: cover;
+    }
+
+    .brand span {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #cc5500;
     }
 
     nav ul {
@@ -312,7 +330,10 @@
 <body>
   <!-- ======= NAVIGATION ======= -->
   <nav>
-    <img src="original logo.png" alt="UNI Freelancer Logo" class="logo" />
+    <a href="index.html" class="brand">
+      <img src="original logo.png" alt="UNI Freelancers Logo" class="logo" />
+      <span>UNI Freelancers</span>
+    </a>
     <ul id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="aboutus.html">About</a></li>
