@@ -47,6 +47,51 @@
       color: #ffd700;
     }
 
+    .hamburger-menu {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: orangered;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      flex-direction: column;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 999;
+    }
+    .mobile-menu.active {
+      display: flex;
+    }
+    .mobile-menu a {
+      padding: 1rem 2rem;
+      border-top: 1px solid #f0f0f0;
+      display: block;
+      color: orangered;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .mobile-menu a:hover {
+      background-color: #fff8f2;
+      color: #ffd700;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+      .hamburger-menu {
+        display: block;
+      }
+    }
+
     header {
       background: url('training.jpg') center/cover no-repeat;
       color: white;
@@ -123,6 +168,15 @@
       <li><a href="webdesign.html">Web Design</a></li>
       <li><a href="empowerment.html">Empowerment</a></li>
     </ul>
+    <button class="hamburger-menu" id="hamburgerMenu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="dataentry.html">Data Entry</a>
+      <a href="webdesign.html">Web Design</a>
+      <a href="empowerment.html">Empowerment</a>
+    </div>
   </nav>
 
   <header>
@@ -161,6 +215,39 @@
   <footer>
     <p>© 2025 UNI Freelancer • Empowering Youth Through Digital Skills</p>
   </footer>
+
+  <script>
+    // Hamburger menu toggle - Ensure DOM is ready
+    function initHamburger() {
+      const hamburgerMenu = document.getElementById('hamburgerMenu');
+      const mobileMenu = document.getElementById('mobileMenu');
+      
+      if (!hamburgerMenu || !mobileMenu) {
+        console.warn('Hamburger menu elements not found on training page');
+        return;
+      }
+      
+      hamburgerMenu.addEventListener('click', (e) => {
+        e.preventDefault();
+        mobileMenu.classList.toggle('active');
+      });
+
+      // Close menu when a link is clicked
+      document.querySelectorAll('#mobileMenu a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+        });
+      });
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHamburger);
+    } else {
+      initHamburger();
+    }
+  </script>
+  </script>
 </body>
 </html>
 
