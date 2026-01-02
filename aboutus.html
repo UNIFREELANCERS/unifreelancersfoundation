@@ -8,6 +8,7 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
@@ -74,6 +75,47 @@
         transform: translateY(-6px);
         box-shadow: 0 6px 18px rgba(204, 85, 0, 0.2);
       }
+
+      .mobile-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        gap: 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        z-index: 40;
+      }
+      .mobile-menu.active {
+        display: flex;
+      }
+      .mobile-menu a {
+        padding: 1rem 1.5rem;
+        border-top: 1px solid #e5e7eb;
+        display: block;
+      }
+      .mobile-menu a:hover {
+        background-color: #fef3c7;
+        color: #CC5500;
+      }
+      .hamburger-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #CC5500;
+      }
+      @media (max-width: 768px) {
+        .hamburger-btn {
+          display: block;
+        }
+        nav {
+          display: none !important;
+        }
+      }
     </style>
   </head>
 
@@ -94,7 +136,17 @@
             <a href="joinus.html" class="px-3 py-1.5 rounded-full bg-primary text-white hover:bg-[#b94a00] shadow-md">Join Us</a>
             <a href="contactus.html" class="hover:text-primary">Contact</a>
           </nav>
+          <button class="hamburger-btn" id="hamburger">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
+        <nav class="mobile-menu" id="mobile-menu">
+          <a href="index.html">Home</a>
+          <a href="aboutus.html" class="text-primary font-semibold">About</a>
+          <a href="index.html">Services</a>
+          <a href="joinus.html">Join Us</a>
+          <a href="contactus.html">Contact</a>
+        </nav>
       </div>
     </header>
 
@@ -186,11 +238,11 @@ Today, UNI Freelancers is more than a platform — it’s a community of changem
         <p class="mt-2 text-neutral-700">Real stories. Real transformation.</p>
         <div class="mt-10 grid sm:grid-cols-3 gap-10">
           <div>
-            <p class="text-5xl font-bold text-primary counter" data-target="61">0</p>
+            <p class="text-5xl font-bold text-primary counter" data-target="92">0</p>
             <p class="mt-2 text-neutral-700">Youth Trained</p>
           </div>
           <div>
-            <p class="text-5xl font-bold text-primary counter" data-target="55">0</p>
+            <p class="text-5xl font-bold text-primary counter" data-target="100">0</p>
             <p class="mt-2 text-neutral-700">Projects Completed</p>
           </div>
           <div>
@@ -289,6 +341,36 @@ Today, UNI Freelancers is more than a platform — it’s a community of changem
         if (window.scrollY > 10) nav.classList.add('scrolled');
         else nav.classList.remove('scrolled');
       });
+
+      // Hamburger menu toggle - Ensure DOM is ready
+      function initHamburger() {
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (!hamburger || !mobileMenu) {
+          console.warn('Hamburger menu elements not found on aboutus page');
+          return;
+        }
+        
+        hamburger.addEventListener('click', (e) => {
+          e.preventDefault();
+          mobileMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+          });
+        });
+      }
+
+      // Initialize when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initHamburger);
+      } else {
+        initHamburger();
+      }
     </script>
   </body>
 </html>
