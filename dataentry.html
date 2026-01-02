@@ -56,6 +56,28 @@
 
     /* small screen menu button */
     .menu-btn{display:none;border:0;background:transparent;font-size:1.1rem;color:var(--primary)}
+    .mobile-nav-menu{
+      display:none;
+      position:absolute;
+      top:100%;
+      left:0;
+      right:0;
+      background:white;
+      flex-direction:column;
+      box-shadow:0 4px 6px rgba(0,0,0,0.1);
+      z-index:50;
+    }
+    .mobile-nav-menu.active{display:flex}
+    .mobile-nav-menu a{
+      padding:1rem 1.5rem;
+      border-top:1px solid #f3f4f6;
+      display:block;
+      color:var(--primary);
+      font-weight:600;
+    }
+    .mobile-nav-menu a:hover{
+      background-color:#fff8f2;
+    }
     @media(max-width:880px){
       .nav-links{display:none}
       .menu-btn{display:inline-flex}
@@ -200,6 +222,15 @@
       </div>
 
       <div class="nav-links" id="navlinks">
+        <a href="index.html">Home</a>
+        <a href="webdesign.html">Web Design</a>
+        <a href="dataentry.html">Data Entry</a>
+        <a href="training.html">Training</a>
+        <a href="empowerment.html">Empowerment</a>
+        <a href="hireus.html">Hire Us</a>
+      </div>
+
+      <div class="mobile-nav-menu" id="mobileNavMenu">
         <a href="index.html">Home</a>
         <a href="webdesign.html">Web Design</a>
         <a href="dataentry.html">Data Entry</a>
@@ -445,6 +476,35 @@
     document.addEventListener('keydown', (e)=>{
       if(e.key === 'Escape' && modal.classList.contains('open')) closeViewer();
     });
+
+    // Hamburger menu toggle - Ensure DOM is ready
+    function initHamburger() {
+      const menuBtn = document.querySelector('.menu-btn');
+      const mobileNavMenu = document.querySelector('.mobile-nav-menu');
+      
+      if (menuBtn && mobileNavMenu) {
+        menuBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          mobileNavMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.mobile-nav-menu a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileNavMenu.classList.remove('active');
+          });
+        });
+      } else {
+        console.warn('Hamburger menu elements not found on dataentry page');
+      }
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHamburger);
+    } else {
+      initHamburger();
+    }
   </script>
 </body>
 </html>
